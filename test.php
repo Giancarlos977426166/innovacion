@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>javascript - Obtener el valor de un input type=text de varias maneras</title>
+    <script>
+    function capturar()
+    {
+        // obtenemos e valor por el numero de elemento
+        var porElementos=document.forms["form1"].elements[0].value;
+        // Obtenemos el valor por el id
+        var porId=document.getElementById("nombre").value;
+        // Obtenemos el valor por el Nombre
+        var porNombre=document.getElementsByName("nombre")[0].value;
+        // Obtenemos el valor por el tipo de tag
+        var porTagName=document.getElementsByTagName("input")[0].value;
+        // Obtenemos el valor por el nombre de la clase
+        var porClassName=document.getElementsByClassName("formulario")[0].value;
+ 
+        document.getElementById("resultado").innerHTML=" \
+            Por elementos: "+porElementos+" \
+            <br>Por ID: "+porId+" \
+            <br>Por Nombre: "+porNombre+" \
+            <br>Por TagName: "+porTagName+" \
+            <br>Por ClassName: "+porClassName;
+    }
+    </script>
+ 
+    <style>
+        form   {width:250px;height:180px;border:1px solid #ccc;padding:10px;}
+    </style>
+</head>
+ 
+<body>
+    <h1>Obtener el valor de un input type=text de varias maneras</h1>
+    <form id="form1">
+        Nombre:<br><input type="text" name="nombre" value="jose" id="nombre" class="formulario">
+ 
+        <p><input type="checkbox" name="acepto" id="acepto" class="formulario_check"> Acepto el contrato</p>
+ 
+        <p>Deacuerdo: Si<input type="radio" name="deacuerdo" value="si"> No<input type="radio" name="deacuerdo" value="no"></p>
+ 
+        <p>
+        <select name="seleccion" id="seleccion" class="formulario_select">
+            <option value="1">Docente</option>
+            <option value="2">Alumno</option>
+        </select>
+        </p>
+    </form>
+    <input type="button" value="obtener el nombre" onclick="capturar()">
+    <div id="resultado"></div>
+ 
+    <p><a href="http://www.lawebdelprogramador.com">http://www.lawebdelprogramador.com</a></p>
+</body>
+</html>
